@@ -1,26 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* ============================= */
+/* 🌈 Global Color Variables     */
+/* ============================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg-main: #ffffff;
+  --color-text-main: #171717;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-border: #2e2e2e;
+  --color-border-light: #555555;
+  --color-hover: #1a1a1a;
+  --color-ring: rgba(255, 255, 255, 0.2);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* 🌙 Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg-main: #0a0a0a;
+    --color-text-main: #ededed;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-border: #444444;
+    --color-border-light: #666666;
+    --color-hover: #111111;
+    --color-ring: rgba(255, 255, 255, 0.25);
   }
 }
 
+/* ============================= */
+/* 🧩 Tailwind Theme Bindings    */
+/* ============================= */
+@theme inline {
+  --color-background: var(--color-bg-main);
+  --color-foreground: var(--color-text-main);
+}
+
+/* ============================= */
+/* 🌍 Global Base Styles         */
+/* ============================= */
+
+/* ✅ Importing Poppins font family (optimized for performance) */
+
+/* ✅ Apply font globally */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for category nav */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional focus and shadow effects */
+a:focus {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 3px;
+}
+
+/* Sticky nav subtle shadow */
+.sticky-nav-shadow {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
