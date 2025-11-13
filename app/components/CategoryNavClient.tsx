@@ -1,3 +1,5 @@
+//app/components/CategoryNavClient.tsx
+
 'use client';
 
 import React from 'react';
